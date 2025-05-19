@@ -1,0 +1,496 @@
+/* Reset và thiết lập cơ bản */
+body,
+html {
+    /* Reset toàn bộ khoảng cách mặc định của trình duyệt */
+    margin: 0;
+    padding: 0;
+    /* Thiết lập bố cục linh hoạt theo chiều dọc cho toàn trang */
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    /*  Căn giữa nội dung theo cả trục dọc và ngang */
+    align-items: center;
+    justify-content: center;
+    /* Căn giữa văn bản bên trong body */
+    text-align: center;
+}
+
+/* Phần nội dung chính chiếm không gian còn lại */
+#main-content {
+    /* Phóng ảnh nền phủ toàn bộ vùng */
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* Làm cho phần nội dung chiếm hết không gian còn lại */
+    flex: 1;
+    /* Đảm bảo nội dung không tràn ra ngoài */
+    overflow: hidden;
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+header {
+    background-color: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    max-width: 100%;
+    /* Header có nền đen, phân bố phần tử đều hai bên, hỗ trợ co giãn khi nhỏ màn hình */
+    flex-wrap: wrap;
+}
+
+/* Bố cục container để chứa địa chỉ và tiêu đề */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+
+/* Chỉnh lại chiều rộng của địa chỉ */
+#address {
+    font-size: 16px;
+    color: #555;
+    word-wrap: break-word;
+}
+
+
+
+
+/* Tiêu đề chính */
+h1 {
+    text-align: center;
+    color: #fff;
+    font-size: 40px;
+    flex-grow: 1;
+}
+
+/* Đưa nút lên phía trên bên phải */
+#history-widget {
+    position: absolute;
+    top: 46px;
+    right: 60px;
+}
+
+/* Nút trong suốt, bố cục nằm ngang (icon + text) */
+.history-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+/* Nút phóng to nhẹ khi hover */
+.history-btn:hover {
+    scale: 1.1;
+}
+
+.history-btn i {
+    margin-right: 5px;
+    /* Khoảng cách giữa icon và chữ */
+    font-size: 20px;
+    /* Tăng kích thước của icon */
+}
+
+/* Style cho Modal */
+.history-modal {
+    display: none;
+    /* Ẩn mặc định */
+    position: fixed;
+    /* Gắn cố định với màn hình */
+    z-index: 1000;
+    /* Đảm bảo modal ở trên cùng */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Màu nền mờ */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Nội dung modal */
+.history-modal-content {
+    background-color: #fff;
+    padding: 20px;
+    width: 60%;
+    /* Điều chỉnh chiều rộng của modal */
+    max-height: 70%;
+    /* Giới hạn chiều cao của modal */
+    overflow-y: auto;
+    /* Đảm bảo có thể cuộn nếu quá nhiều nội dung */
+    border-radius: 10px;
+    position: relative;
+}
+
+/* Nút đóng modal */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+/* Style cho bảng trong modal */
+.history-modal-content table {
+    width: 100%;
+    /* Chiếm toàn bộ chiều rộng của modal */
+    border-collapse: collapse;
+}
+
+.history-modal-content th,
+.history-modal-content td {
+    border: 1px solid #ddd;
+    /* Thêm đường viền cho bảng */
+    padding: 8px;
+    text-align: left;
+}
+
+.history-modal-content th {
+    background-color: #f2f2f2;
+}
+
+
+
+
+.clock {
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px) saturate(150%);
+    -webkit-backdrop-filter: blur(10px) saturate(150%);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    flex-direction: column;
+    /* Các phần tử thời gian và ngày xếp theo chiều dọc */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 252px;
+}
+
+.time {
+    font-size: 30px;
+    letter-spacing: 3px;
+}
+
+.date {
+    font-size: 20px;
+    margin-top: 10px;
+    color: #000;
+    /* Màu chữ sáng */
+    padding: 10px;
+    /* Thêm padding để phần ngày có không gian xung quanh */
+}
+
+span {
+    display: inline-block;
+    min-width: 40px;
+    text-align: center;
+}
+
+.garden-container {
+    background-image: url('https://img.freepik.com/free-photo/beautiful-park_1417-1420.jpg?t=st=1746714489~exp=1746718089~hmac=1240eba15850d1ffa42d410a0cab57181968c26bec8066c2bb9a4bbb5d7aa63b&w=1380');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 25px;
+}
+
+.container-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.garden-box {
+    color: #000;
+    /* Màu chữ đậm */
+    background: rgba(255, 255, 255, 0.2);
+    /* Nền bán trong suốt */
+    backdrop-filter: blur(8px) saturate(120%);
+    /* Hiệu ứng mờ nhẹ hơn */
+    -webkit-backdrop-filter: blur(8px) saturate(120%);
+    padding: 40px;
+    /* Tăng kích thước padding */
+    width: 300px;
+    /* Tăng chiều rộng box */
+    margin: 30px;
+    /* Khoảng cách giữa các box lớn hơn */
+    text-align: center;
+    border-radius: 12px;
+    /* Góc bo tròn mềm mại */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    /* Đường viền mờ */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    /* Đổ bóng nhẹ */
+    transition: transform 0.3s, background-color 0.3s, color 0.3s;
+    cursor: pointer;
+
+}
+
+.garden-box:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+    /* Hiệu ứng phóng to nhẹ */
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+}
+
+
+.garden-box h3 {
+    margin: 10px 0;
+    font-size: 24px;
+    color: #ffffff;
+    /* Màu chữ cho tiêu đề */
+}
+
+.icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+    color: #ffffff;
+    /* Màu cho biểu tượng */
+}
+
+
+/* Wrapper chứa nút và menu */
+.unit-toggle-wrapper {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: inline-block;
+}
+
+/* Nút chuyển đổi */
+.unit-toggle-btn {
+    width: 25px;
+    height: 25px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.unit-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+/* Menu dropdown */
+.unit-menu {
+    display: none;
+    position: absolute;
+    top: 35px;
+    /* Xuất hiện bên dưới nút */
+    right: 0;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    z-index: 100;
+}
+
+/* Hiển thị menu khi active */
+.unit-menu.show {
+    display: block;
+}
+
+/* Tùy chọn trong menu - Tăng chiều rộng */
+.menu-option {
+    padding: 8px 20px;
+    /* Điều chỉnh chiều rộng bằng cách tăng padding */
+    text-align: center;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s, color 0.3s;
+    width: 100px;
+    /* Tăng chiều rộng của phần tùy chọn */
+}
+
+.menu-option:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* Biểu tượng */
+.icon {
+    font-size: 40px;
+    margin: 10px 0;
+    color: #000;
+    /* Đổi màu biểu tượng */
+}
+
+/* Temperature Box - Căn chỉnh */
+.temperature-box {
+    position: relative;
+    text-align: center;
+}
+
+/* Footer styles */
+footer {
+    background-color: #000;
+    color: #ffff;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* Footer container styles */
+.footer-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 30px;
+
+}
+
+/* Các liên kết mạng xã hội với icon */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.social-icon i {
+    font-size: 28px;
+    /* Kích thước icon */
+    color: #FFFFFF;
+    /* Màu trắng tinh tế */
+    transition: color 0.3s ease-in-out;
+}
+
+.social-icon:hover .fa-facebook-f {
+    color: #3b5998;
+    /* Màu thương hiệu Facebook khi hover */
+}
+
+.social-icon:hover .fa-twitter {
+    color: #1da1f2;
+    /* Màu xanh của X */
+}
+
+.social-icon:hover .fa-github {
+    color: #333333;
+    /* Màu đen GitHub */
+}
+
+.social-icon:hover .fa-discord {
+    color: #5865F2;
+    /* Màu tím Discord */
+}
+
+.social-icon:hover .fa-youtube {
+    color: #FF0000;
+    /* Màu đỏ YouTube */
+}
+
+.contact-info {
+    text-align: center;
+    color: #ffff;
+    /* Màu trắng */
+    font-size: 16px;
+}
+
+.contact-info a {
+    color: #ffff;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+
+/* BUTTON */
+.buttons {
+    display: flex;
+    gap: 48px;
+}
+
+.btn {
+    padding: 14px 24px 14px 24px;
+    border: 1px;
+    border-radius: 12px;
+    background: #f7f6f6;
+    backdrop-filter: blur(8px) saturate(120%);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    ;
+}
+
+.btn:hover {
+    transition: 1s;
+    background-color: #BDB76B;
+    cursor: pointer;
+}
+
+/* Responsive và thanh cuộn */
+@media (max-width: 600px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        position: fixed;
+    }
+
+    .contact-info {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* Tùy chỉnh thanh cuộn (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+    width: 12px;
+    /* Chiều rộng của thanh cuộn dọc */
+    height: 12px;
+    /* Chiều cao của thanh cuộn ngang */
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    /* Màu nền thanh cuộn */
+    border-radius: 10px;
+    /* Bo tròn cho thanh nền */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    /* Màu thanh cuộn */
+    border-radius: 10px;
+    /* Bo tròn cho thanh kéo */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    /* Màu thanh cuộn khi hover */
+}

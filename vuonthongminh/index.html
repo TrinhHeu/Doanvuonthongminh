@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vườn thông minh</title>
+    <link rel="icon" href="https://www.svgrepo.com/show/396670/house-with-garden.svg">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body id="background">
+    <div id="main-content">
+        <!-- ======= HEADER ======= -->
+        <header>
+            <div class="header-container">
+
+                <!-- Tiêu đề -->
+                <h1>Vườn Thông Minh</h1>
+
+                <!-- Nút History ở phía trên bên phải -->
+                <div id="history-widget" class="history-widget-box">
+                    <button id="history-button" class="history-btn">
+                        <i class="fas fa-history" style="color: white; font-size: 24px;"></i>
+                    </button>
+                </div>
+
+                <!-- Modal lịch sử -->
+                <div id="history-modal" class="history-modal">
+                    <div class="history-modal-content">
+                        <span id="close-history" class="close">&times;</span>
+                        <div id="history-data"></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- ======= MAIN CONTENT ======= -->
+        <div class="garden-container">
+            <!-- Hiển thị giờ -->
+            <div class="clock">
+                <div class="time">
+                    <span id="hours">00</span>
+                    <span>:</span>
+                    <span id="minutes">00</span>
+                    <span>:</span>
+                    <span id="seconds">00</span>
+                </div>
+            </div>
+
+            <!--Phần hiển thị ngày-->
+            <div class="date" id="date">Thứ Tư, 11 Tháng 12, 2024</div>
+
+            <br></br>
+            <!-- Dữ liệu cảm biến -->
+            <div class="container-content">
+                <!-- Nhiệt độ -->
+                <div class="garden-box temperature-box">
+                    <!-- Wrapper chứa nút và menu dropdown -->
+                    <div class="unit-toggle-wrapper">
+                        <!-- Nút chuyển đổi -->
+                        <button id="toggle-unit" class="unit-toggle-btn">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <!-- Menu dropdown -->
+                        <div id="unit-menu" class="unit-menu">
+                            <div class="menu-option" id="to-celsius">Chuyển sang °C</div>
+                            <div class="menu-option" id="to-fahrenheit">Chuyển sang °F</div>
+                        </div>
+                    </div>
+
+                    <!-- Phần nội dung chính -->
+                    <div class="icon">🌡️</div>
+                    <h3>Nhiệt độ</h3>
+                    <p id="temperature">20°C</p>
+                </div>
+
+
+                <div class="garden-box">
+                    <div class="icon">💧</div>
+                    <h3>Độ ẩm không khí</h3>
+                    <p id="humidity">55%</p>
+                </div>
+
+                <div class="garden-box">
+                    <div class="icon">🌱</div>
+                    <h3>Độ ẩm đất</h3>
+                    <p id="soilmoisture">100%</p>
+                </div>
+
+                <div class="garden-box">
+                    <div class="icon">☀️</div>
+                    <h3>Ánh sáng</h3>
+                    <p>Tối</p>
+                </div>
+
+                <div class="garden-box">
+                    <div class="icon">🌧️</div>
+                    <h3>Mưa</h3>
+                    <p>Không mưa</p>
+                </div>
+
+                <div class="garden-box">
+                    <div class="icon">🔄</div>
+                    <h3>Chế độ</h3>
+                    <p>Tự động</p>
+                </div>
+
+                <div class="garden-box">
+                    <div class="icon">🚿</div>
+                    <h3>Đèn</h3>
+                    <p> Bật/Tắt Bơm</p>
+                </div>
+
+                <div class="garden-box">
+                    <div class="icon">💡</div>
+                    <h3>Đèn</h3>
+                    <p>Tắt</p>
+                </div>
+            </div>
+
+            <!-- Các nút điều khiển -->
+            <div class="buttons">
+                <button class="btn btn-mode">🔄 Chuyển chế độ</button>
+                <button class="btn btn-pump">🚿 Bật/Tắt Bơm</button>
+                <button class="btn btn-light">💡 Bật/Tắt Đèn</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- ======= FOOTER ======= -->
+    <footer>
+        <div class="footer-container">
+            <!-- Các liên kết mạng xã hội với icon -->
+            <div class="social-links">
+                <a href="" target="_blank" class="social-icon">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="" target="_blank" class="social-icon">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="" target="_blank" class="social-icon">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="" target="_blank" class="social-icon">
+                    <i class="fab fa-discord"></i>
+                </a>
+                <a href="" target="_blank" class="social-icon">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+
+
+            <!-- Thông tin liên hệ -->
+            <div class="contact-info">
+                <p>Email: <a href="">@sv.uneti.edu.vn</a></p>
+                <p>Phone: <a href="tel:+1234567890"></a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ======= SCRIPT ======= -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
